@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState, useEffect } from "react";
 
 function App() {
+  const [state, setState] = useState({});
+
+  useEffect(() => {
+    fetch("/uk/plpslice/listing-api/query?setId=9645&view=180&gender=Men")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setState(data);
+      });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {console.log(state)}
+
+      {state.map((d) => {
+        return <h1> {d}</h1>;
+      })}
     </div>
   );
 }
