@@ -1,27 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 
 function ProductCard(props) {
+  const [isShown, setIsShown] = useState(false);
+
   return (
-    <div className="ProductCard">
-      <div key={props.id} className="product">
-        <a href={props.link} className="product__link">
-          <img
-            src={props.imageProduct}
-            alt={props.shortDescription}
-            className="product__image"
-          />
-          <img
-            src={props.imageModel}
-            alt={props.shortDescription}
-            className="product__image product__image--hover"
-          />
-          <span className="product__label">{props.merchandiseLabel}</span>
-          <h3 className="product__brand">{props.brand}</h3>
-          <p className="product__description">{props.shortDescription}</p>
-          <p className="product__price">{props.price}</p>
-        </a>
-      </div>
+    <div className="ProductCard" key={props.id}>
+      <a href={props.link} className="ProductCard__link">
+        <img
+          src={props.imageProduct}
+          alt={props.shortDescription}
+          className="ProductCard__image"
+        />
+        <img
+          src={props.imageModel}
+          alt={props.shortDescription}
+          className="ProductCard__image ProductCard__image--hover"
+        />
+        <span className="ProductCard__label">{props.merchandiseLabel}</span>
+        <h2 className="ProductCard__brand">{props.brand}</h2>
+        <p className="ProductCard__description">{props.shortDescription}</p>
+        <p className="ProductCard__price">{props.price}</p>
+      </a>
     </div>
   );
 }

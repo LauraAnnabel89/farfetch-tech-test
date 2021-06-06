@@ -21,7 +21,7 @@ function ProductGrid() {
         console.log(product);
         return (
           <ProductCard
-            id={product.id}
+            key={product.id}
             link={product.url}
             imageProduct={[product.images.cutOut]}
             imageModel={[product.images.model]}
