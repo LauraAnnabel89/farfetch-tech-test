@@ -1,5 +1,5 @@
 .ProductCard {
-  max-width: 300px;
+  max-width: 250px;
 }
 
 .ProductCard__link {
@@ -9,4 +9,9 @@
 
 .ProductCard__image {
   width: 100%;
+}
+
+.ProductCard__info,
+.ProductCard__price {
+  padding: 15px;
 }
