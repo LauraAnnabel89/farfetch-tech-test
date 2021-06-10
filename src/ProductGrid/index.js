@@ -5,7 +5,6 @@ import "./style.css";
 
 function ProductGrid() {
   const [productData, setProductData] = useState([]);
-  const [selectedDesigner, setSelectedDesigner] = useState({});
 
   useEffect(() => {
     fetch("/uk/plpslice/listing-api/query?setId=9645&view=180&gender=Men")
@@ -17,21 +16,10 @@ function ProductGrid() {
       });
   }, []);
 
+
+
   return (
     <>
-      <select>
-        {productData.map((product, id) => {
-          return (
-            <option
-              value={[product.brand.name]}
-              onClick={(e) => setSelectedDesigner(e.target.value)}
-            >
-              {console.log(selectedDesigner)}
-              {[product.brand.name]}
-            </option>
-          );
-        })}
-      </select>
       <div className="ProductGrid">
         {productData.map((product, id) => {
           return (
